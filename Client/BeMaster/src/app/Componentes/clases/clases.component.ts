@@ -1,6 +1,7 @@
 import { Clase } from './../../Models/clases.model';
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/Servicios/http.service';
+import { Mentor } from 'src/app/Models/mentor.model';
 
 @Component({
   selector: 'app-clases',
@@ -12,10 +13,15 @@ export class ClasesComponent implements OnInit {
   public options:number;
   public clases:Clase[];
   public clase:Clase;
+  public listaMentores:Mentor[];
   constructor(private service:HttpService) {
     this.options = 0;
     this.clases =[];
     this.clase = {nombre:'',duracion:''};
+    this.listaMentores = [];
+    this.service.getMentores().subscribe(mentores=>{
+      this.listaMentores = mentores;
+    })
   }
 
   ngOnInit(): void {

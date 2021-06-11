@@ -50,4 +50,7 @@ export class HttpService {
   public getClase():Observable<Clase[]>{
     return this.http.get<Clase[]>(this.APIURL+'clase');
   }
+  public postClaseXMentor(idsMentores:number[],idClase?:number):Observable<any>{
+    return this.http.post<any>(this.APIURL+'',[]);
+  }
 }

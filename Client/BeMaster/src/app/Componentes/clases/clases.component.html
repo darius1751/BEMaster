@@ -19,7 +19,11 @@
                 <h5 class="card-title">{{clase.nombre}}</h5>
                   <p class="card-text">
                     Duracion: {{clase.duracion}} A&ntilde;os
-                    Clases: 
+                    Mentores: 
+                    <li *ngFor="let mentor of clase.mentores">
+                        Nombre:{{mentor.nombre}}
+                        Documento: {{mentor.documento_identidad}}
+                    </li>
                   </p>
               </div>
             </div>
@@ -33,6 +37,14 @@
             <div class='form-group'>
                 <label for="txtDuracion">Duracion:</label>
                 <input type="time" name="txtDuracion" [(ngModel)]='clase.duracion' [ngModelOptions]='{standalone:true}' class='form-control'id="txtDuracion" required>
+            </div>
+            <div *ngIf='listaMentores !== []'>
+                Elige los Mentores:
+                <div class='form-group' #$lista>
+                    <select multiple name="lsbxMentores" id="lsbxMentores" [(ngModel)]="clase.mentores" [ngModelOptions]='{standalone:true}'>
+                        <option value="{{   mentor.id}}" *ngFor='let mentor of listaMentores'>{{mentor.nombre}}</option>
+                    </select>
+                </div>
             </div>
             <button type='submit'class='btn btn-primary' (click)='registrar()'>Registrar</button>
         </form>
