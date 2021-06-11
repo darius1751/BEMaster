@@ -4,7 +4,11 @@
 #options button{
     margin: 5px;
 }
-form{
+div form{
     margin: 0 auto;
     width: 400px;
+}
+section.card{
+    display: inline-block;
+    margin:3px;
 }

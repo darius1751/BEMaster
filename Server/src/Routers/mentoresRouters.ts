@@ -6,7 +6,7 @@ class MentoresRouters{
         this.routers = Router();
         this.config();
     }
-    public config():void{
+    public async config():Promise<void>{
         this.routers.get('/',mentoresController.getAll);
         this.routers.get('/:id',mentoresController.get);
         this.routers.post('/',mentoresController.post);

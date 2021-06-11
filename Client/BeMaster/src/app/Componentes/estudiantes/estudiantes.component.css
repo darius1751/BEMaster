@@ -1,12 +1,12 @@
 #options{
     text-align:center;
 }
-#options button{ 
+#options button{
     margin: 5px;
 }
 form{
-    width:400px;
     margin: 0 auto;
+    width: 400px;
 }
 div.card{
     display:inline-block;

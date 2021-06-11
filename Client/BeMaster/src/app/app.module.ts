@@ -8,13 +8,19 @@ import { EstudiantesComponent } from './Componentes/estudiantes/estudiantes.comp
 import { CarrerasComponent } from './Componentes/carreras/carreras.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MentoresComponent } from './Componentes/mentores/mentores.component';
+import { AsignarClasesMentorComponent } from './Componentes/asignar-clases-mentor/asignar-clases-mentor.component';
+import { ClasesComponent } from './Componentes/clases/clases.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HogarComponent,
     EstudiantesComponent,
-    CarrerasComponent
+    CarrerasComponent,
+    MentoresComponent,
+    AsignarClasesMentorComponent,
+    ClasesComponent
   ],
   imports: [
     BrowserModule,

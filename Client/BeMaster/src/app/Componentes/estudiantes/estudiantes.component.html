@@ -5,7 +5,11 @@
     </div>
     <div [ngSwitch]="opcion">
         <div *ngSwitchCase='1'>
-            <div class="card" style="width: 18rem;border:solid #efb810 3px; margin-top:8px;" *ngFor='let estudiante of estudiantes'>
+            <div class="card" style="width: 18rem;border:solid #efb810 5px; margin-top:8px;" *ngFor='let estudiante of estudiantes'>
+              <button class='btn btn-danger' (click)='delete(estudiante.id)'>
+                <i class='far fa-trash-alt '>
+                </i>
+              </button>
                 <img src="https://image.flaticon.com/icons/png/512/354/354637.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{estudiante.nombre}}</h5>
@@ -13,7 +17,6 @@
                       Documento: {{estudiante.documento_identidad}} <br>
                       Fecha Nacimiento: {{estudiante.fecha_nacimiento | date:'mediumDate'}}
                     </p>
-                  <a href="#" class="btn btn-primary">Conocer mas</a><i class="bi bi-trash-fill"></i>
                 </div>
               </div>
         </div>
@@ -29,11 +32,10 @@
                   <input type="number" class="form-control" id="txtDocumento" placeholder="Ingrese su numero de documento" [(ngModel)]='estudiante.documento_identidad' [ngModelOptions]='{standalone:true}'>
                   <small id="smllDocumento" class="form-text text-muted">Debe tener menos de 15 caracteres</small>
                 </div>
-                <div class="form-group">
+                  <div class="form-group">
                     <label for="txtFechaNacimiento">Fecha:</label>
                     <input type="date" class="form-control" id="txtFechaNacimiento" [(ngModel)]='estudiante.fecha_nacimiento' [ngModelOptions]='{standalone:true}'>
                   </div>
-                
                 <button type="submit" class="btn btn-primary" (click)='post()'>Registrar</button>
               </form>
         </div>

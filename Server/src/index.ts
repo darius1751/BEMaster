@@ -7,6 +7,7 @@ import estudianteRouters from './Routers/EstudiantesRouters';
 import mentorRouters from './Routers/mentoresRouters';
 import carreraRouters from './Routers/carrerasRouters';
 import claseXmentorRouters from './Routers/claseXmentorRouters';
+import * as compression from 'compression';
 class Server{
     private app:Application;
     constructor(){
@@ -23,6 +24,7 @@ class Server{
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.use(compression());
         this.app.use('/clase',clasesRouters);
         this.app.use('/estudiante',estudianteRouters);
         this.app.use('/mentor',mentorRouters);

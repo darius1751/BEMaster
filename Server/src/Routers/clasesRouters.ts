@@ -6,7 +6,7 @@ class ClasesRouters{
         this.routers = Router();
         this.config();
     }
-    public config():void{
+    public async config():Promise<void>{
         this.routers.get('/',clasesController.getAll);
         this.routers.get('/:id',clasesController.get);
         this.routers.post('/',clasesController.post);

@@ -21,12 +21,15 @@ export class EstudiantesComponent implements OnInit {
     
   }
   public ver():void{
-    this.opcion = 1;
-    this.http.getEstudiantes().subscribe(data=>{
-      this.estudiantes = data;
-    },(error)=>{
-      console.log('Este es el error:',error);
-    });
+    if(this.opcion != 1){
+      this.opcion = 1;
+      this.http.getEstudiantes().subscribe(data=>{
+        this.estudiantes = data;
+      },(error)=>{
+        console.log('Este es el error:',error);
+      }); 
+    }
+    
   }
   public registrar():void{
     this.opcion = 2;
@@ -35,5 +38,11 @@ export class EstudiantesComponent implements OnInit {
     this.http.postEstudiante(this.estudiante).subscribe(data=>{
       console.log(data);  
     })
+  }
+  public delete(id?:number):void{
+    this.http.deleteEstudiante(id).subscribe(data=>{
+      this.ver();
+    });
+    
   }
 }

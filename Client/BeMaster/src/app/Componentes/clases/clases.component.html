@@ -9,16 +9,16 @@
 <div [ngSwitch]='options'>
     <br><br>
     <div *ngSwitchCase="1">
-        <div class="card" style="width: 18rem;border:solid #efb810 5px; margin-top:8px;" *ngFor='let carrera of carreras'>
-            <button class='btn btn-danger' (click)='delete(carrera.id)'>
+        <div class="card" style="width: 18rem;border:solid #efb810 5px; margin-top:8px;" *ngFor='let clase of clases'>
+            <button class='btn btn-danger' (click)='delete(clase.id)'>
               <i class='far fa-trash-alt '>
               </i>
             </button>
               <img src="https://cdn.logojoy.com/wp-content/uploads/2018/08/30153820/153690081-1024x776.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">{{carrera.nombre}}</h5>
+                <h5 class="card-title">{{clase.nombre}}</h5>
                   <p class="card-text">
-                    Duracion: {{carrera.duracion_en_annios}} A&ntilde;os
+                    Duracion: {{clase.duracion}} A&ntilde;os
                     Clases: 
                   </p>
               </div>
@@ -28,11 +28,11 @@
         <form class='form'>
             <div class="form-group">
                 <label for="txtNombre">Nombre:</label>
-                <input type="text" id='txtNombre' name="txtNombre" placeholder="Ingrese el Nombre" [(ngModel)]='carrera.nombre' [ngModelOptions]='{standalone:true}' class='form-control' required>
+                <input type="text" id='txtNombre' name="txtNombre" placeholder="Ingrese el Nombre" [(ngModel)]='clase.nombre' [ngModelOptions]='{standalone:true}' class='form-control' required>
             </div>
             <div class='form-group'>
-                <label for="txtDuracion">Duracion en a&ntilde;os:</label>
-                <input type="number" name="txtDuracion" min='0' placeholder="Ingrese la duracion en a&ntilde;os" [(ngModel)]='carrera.duracion_en_annios' [ngModelOptions]='{standalone:true}' class='form-control'id="txtDuracion" required>
+                <label for="txtDuracion">Duracion:</label>
+                <input type="time" name="txtDuracion" [(ngModel)]='clase.duracion' [ngModelOptions]='{standalone:true}' class='form-control'id="txtDuracion" required>
             </div>
             <button type='submit'class='btn btn-primary' (click)='registrar()'>Registrar</button>
         </form>

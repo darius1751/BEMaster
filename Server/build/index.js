@@ -8,6 +8,7 @@ var EstudiantesRouters_1 = require("./Routers/EstudiantesRouters");
 var mentoresRouters_1 = require("./Routers/mentoresRouters");
 var carrerasRouters_1 = require("./Routers/carrerasRouters");
 var claseXmentorRouters_1 = require("./Routers/claseXmentorRouters");
+var compression = require("compression");
 var Server = /** @class */ (function () {
     function Server() {
         this.app = express();
@@ -24,6 +25,7 @@ var Server = /** @class */ (function () {
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.use(compression());
         this.app.use('/clase', clasesRouters_1["default"]);
         this.app.use('/estudiante', EstudiantesRouters_1["default"]);
         this.app.use('/mentor', mentoresRouters_1["default"]);
